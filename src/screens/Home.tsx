@@ -19,6 +19,7 @@ import {
   Circle,
   Trash2,
   Edit3,
+  Eye,
   Plus,
   Search,
   Sparkles,
@@ -48,10 +49,12 @@ export default function Home() {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
+  const [viewModalVisible, setViewModalVisible] = useState(false);
 
   const [todoTitle, setTodoTitle] = useState('');
   const [todoInput, setTodoInput] = useState('');
   const [editingTodoId, setEditingTodoId] = useState(null);
+  const [viewingTodo, setViewingTodo] = useState(null);
 
   const titleInputRef = useRef(null);
 
@@ -73,6 +76,11 @@ export default function Home() {
     setTodoTitle(todo.titel || '');
     setTodoInput(todo.text || '');
     setModalVisible(true);
+  };
+
+  const handleOpenViewModal = todo => {
+    setViewingTodo(todo);
+    setViewModalVisible(true);
   };
 
   const handleSaveTodo = () => {
@@ -217,6 +225,12 @@ export default function Home() {
 
               <View style={styles.actionButtons}>
                 <TouchableOpacity
+                  onPress={() => handleOpenViewModal(item)}
+                  style={styles.iconButton}
+                >
+                  <Eye color="#6366f1" size={18} />
+                </TouchableOpacity>
+                <TouchableOpacity
                   onPress={() => handleOpenEditModal(item)}
                   style={styles.iconButton}
                 >
@@ -287,6 +301,46 @@ export default function Home() {
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
+      </Modal>
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={viewModalVisible}
+        onRequestClose={() => setViewModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle} numberOfLines={2}>
+                {viewingTodo?.titel}
+              </Text>
+              <TouchableOpacity onPress={() => setViewModalVisible(false)}>
+                <X color="#94a3b8" size={22} />
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.viewTimelineRow}>
+              <Calendar color="#64748b" size={14} />
+              <Text style={styles.viewDateText}>
+                Created on {viewingTodo ? formatter.format(viewingTodo.createdAt) : ''}
+              </Text>
+            </View>
+
+            <View style={styles.viewBodyWrapper}>
+              <Text style={styles.viewBodyText}>
+                {viewingTodo?.text || 'No additional description provided.'}
+              </Text>
+            </View>
+
+            <TouchableOpacity
+              style={[styles.saveButton, { backgroundColor: '#1e293b', borderWidth: 1, borderColor: '#334155' }]}
+              onPress={() => setViewModalVisible(false)}
+            >
+              <Text style={[styles.saveButtonText, { color: '#94a3b8' }]}>Close Preview</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </Modal>
     </SafeAreaView>
   );
@@ -452,7 +506,31 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     padding: 6,
-    marginLeft: 4,
+    marginLeft: 2,
+  },
+  viewTimelineRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  viewDateText: {
+    color: '#64748b',
+    fontSize: 13,
+    marginLeft: 6,
+  },
+  viewBodyWrapper: {
+    backgroundColor: '#0f172a',
+    borderRadius: 12,
+    padding: 16,
+    minHeight: 120,
+    borderWidth: 1,
+    borderColor: '#334155',
+    marginBottom: 20,
+  },
+  viewBodyText: {
+    color: '#cbd5e1',
+    fontSize: 15,
+    lineHeight: 22,
   },
   fab: {
     position: 'absolute',
@@ -489,6 +567,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '700',
     color: '#ffffff',
+    flex: 1,
+    paddingRight: 10,
   },
   modalTitleInput: {
     backgroundColor: '#0f172a',

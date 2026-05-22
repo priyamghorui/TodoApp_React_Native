@@ -1,97 +1,125 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# App Link :
+https://drive.google.com/file/d/1fF6eaObmo5JTcP4xg2Qb4w6kaqBifoD2/view?usp=sharing
+# App Preview
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 40 39" src="https://github.com/user-attachments/assets/caf91f72-8b15-4232-8bc8-558af627d100" />
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 29 28" src="https://github.com/user-attachments/assets/dc320fb7-2fd1-49fa-a5d9-1decfe3c1425" />
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 40 38" src="https://github.com/user-attachments/assets/5bb09524-43e3-4055-aaa6-452f73b6b3e3" />
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 29 29" src="https://github.com/user-attachments/assets/234159a5-85e4-4184-aabb-62037944035b" />
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 29 28 (1)" src="https://github.com/user-attachments/assets/58fd76e1-6141-49a1-9007-28c007ba464c" />
+<img width="300" height="750" alt="WhatsApp Image 2026-05-23 at 00 40 39 (1)" src="https://github.com/user-attachments/assets/68b76384-2ef6-4f6a-a431-b1beac1e233b" />
 
-# Getting Started
+---
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-## Step 1: Start Metro
+# 📱 My React Native App
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+A mobile application built using React Native CLI.
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+---
 
-```sh
-# Using npm
-npm start
+## 🚀 Features
 
-# OR using Yarn
-yarn start
+- Create, Edit, Delete functionality
+- Local storage support using MMKV
+- Fast performance
+- Android support
+- Clean UI
+- Offline data persistence
+
+---
+
+## 🛠️ Tech Stack
+
+- React Native CLI
+- JavaScript
+- MMKV Storage
+- React Navigation
+- Redux / Context API
+
+---
+
+## 📂 Project Structure
+
+```bash
+MyApp/
+│
+├── android/
+├── ios/
+├── src/
+│   ├── components/
+│   ├── screens/
+│   ├── navigation/
+│   ├── storage/
+│   ├── redux/
+│   └── utils/
+│
+├── App.js
+├── package.json
+└── README.md
+````
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/priyamghorui/TodoApp_React_Native.git
 ```
 
-## Step 2: Build and run your app
+### 2️⃣ Move Into Project
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```bash
+cd your-repo
 ```
 
-### iOS
+### 3️⃣ Install Dependencies
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+```bash
+npm install
 ```
 
-Then, and every time you update your native dependencies, run:
+---
 
-```sh
-bundle exec pod install
+# ▶️ Running the App
+
+## Android
+
+```bash
+npx react-native run-android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## iOS
 
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+```bash
+cd ios
+pod install
+cd ..
+npx react-native run-ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+---
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+# 📦 Build APK (Release)
 
-## Step 3: Modify your app
+```bash
+cd android
+./gradlew assembleRelease
+```
 
-Now that you have successfully run the app, let's make changes!
+APK Location:
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+```bash
+android/app/build/outputs/apk/release/app-release.apk
+```
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+---
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+# 👨‍💻 Author
 
-## Congratulations! :tada:
+Priyam Ghorui
 
-You've successfully run and modified your React Native App. :partying_face:
+---
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+# Thank You
